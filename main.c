@@ -51,7 +51,7 @@ int ft_part(int arr[], int min, int max)
 {
     int i = min - 1;
     int j = min;
-    int pilot = max;
+    int pilot = arr[max];
 
     while (j <= max - 1)
     {
@@ -68,9 +68,9 @@ int ft_part(int arr[], int min, int max)
 
 void ft_qsort(int arr[], int min, int max)
 {
-    int pi = ft_part(arr, min, max);
     if (min < max)
     {
+        int pi = ft_part(arr, min, max);
         ft_qsort(arr, min, pi - 1);
         ft_qsort(arr, pi + 1, max);
     }
