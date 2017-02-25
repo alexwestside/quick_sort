@@ -38,43 +38,7 @@ void ft_sort_arr(int arr[], int n)
  */
 
 
-void ft_swap(int *num1, int *num2)
-{
-    int tmp = 0;
 
-    tmp = *num1;
-    *num1 = *num2;
-    *num2 = tmp;
-}
-
-int ft_part(int arr[], int min, int max)
-{
-    int i = min - 1;
-    int j = min;
-    int pilot = arr[max];
-
-    while (j <= max - 1)
-    {
-        if (arr[j] <= pilot)
-        {
-            i++;
-            ft_swap(&arr[j], &arr[i]);
-        }
-        j++;
-    }
-    ft_swap(&arr[i + 1], &arr[max]);
-    return (i + 1);
-}
-
-void ft_qsort(int arr[], int min, int max)
-{
-    if (min < max)
-    {
-        int pi = ft_part(arr, min, max);
-        ft_qsort(arr, min, pi - 1);
-        ft_qsort(arr, pi + 1, max);
-    }
-}
 
 int main()
 {
