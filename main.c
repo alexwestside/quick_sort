@@ -44,8 +44,8 @@ void ft_qsort(int arr[], int f, int l)
 
 int main()
 {
-    int n = 9;
-    int arr[9] = {3, 7, 1, 9, 6, 4, 5, 2, 8};
+    int n = 4;
+    int arr[4] = {3, 2, 9, 6};
 
     int i = -1;
     while (++i < n)
