@@ -3,55 +3,49 @@
 
 #include <stdio.h>
 
-/*
-void ft_sort_arr(int arr[], int n)
+void ft_swap(int *num1, int *num2)
 {
-    int i = 0;
-    int j;
-    int tmp = 0;
+    int tmp;
 
-    while (i < n)
+    tmp = *num1;
+    *num1 = *num2;
+    *num2 = tmp;
+}
+
+int ft_part(int arr[], int f, int l)
+{
+    int pilot = arr[l];
+    int i = f - 1;
+    int j = f;
+
+    while (j <= l - 1)
     {
-        j = 0;
-        while (j < n)
+        if (arr[j] <= pilot)
         {
-            if (arr[j] > arr[j + 1])
-            {
-                tmp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = tmp;
-            }
-            j++;
+            i++;
+            ft_swap(&arr[j], &arr[i]);
         }
-        i++;
+        j++;
+    }
+    ft_swap(&arr[i + 1], &arr[l]);
+    return (i + 1);
+}
+
+void ft_qsort(int arr[], int f, int l)
+{
+    if (f < l)
+    {
+        int p = ft_part(arr, f, l);
+
+        ft_qsort(arr, f, p - 1);
+        ft_qsort(arr, p + 1, l);
     }
 }
- */
-
-/*void ft_bezero(int arr2[], int n)
-{
-    int i = -1;
-
-    while (++i < n)
-        arr2[i] = 0;
-}
- */
-
-
-
 
 int main()
 {
     int n = 9;
-    //int pivot;
-    //int arr2[n];
     int arr[9] = {3, 7, 1, 9, 6, 4, 5, 2, 8};
-
-    //ft_sort_arr(arr, n);
-    //pivot = arr[n / 2];
-
-    //ft_bezero(arr2, n);
-
 
     int i = -1;
     while (++i < n)
